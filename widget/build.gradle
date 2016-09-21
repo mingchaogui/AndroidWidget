@@ -1,0 +1,59 @@
+apply plugin: 'com.android.library'
+
+version = '0.0.1'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'android-widget'
+
+    publishedGroupId = 'com.mingchaogui'
+    artifact = 'android-widget'
+
+    libraryVersion = version
+    libraryName = 'AndroidWidget'
+    libraryDescription = 'A wrapper for widgets on Android'
+
+    siteUrl = 'https://github.com/mingchaogui/AndroidWidget'
+    gitUrl = 'https://github.com/mingchaogui/AndroidWidget.git'
+
+    developerId = 'mingchaogui'
+    developerName = 'Cai'
+    developerEmail = 'mingchaogui@qq.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+apply from:'https://cdn.rawgit.com/mingchaogui/JCenter/master/install.gradle'
+apply from:'https://cdn.rawgit.com/mingchaogui/JCenter/master/bintray.gradle'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 1
+        versionName version
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+
+    // 二维码
+    compile 'com.journeyapps:zxing-android-embedded:3.3.0'
+}
