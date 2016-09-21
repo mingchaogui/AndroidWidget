@@ -16,7 +16,7 @@ import android.widget.EditText;
  * 需要注意的是，清除按钮会占据drawableRight的位置，所以设置drawableRight会无效
  * Created by liruchun on 2015/7/2.
  */
-public class MEditText extends EditText {
+public class MsEditText extends EditText {
     /** 默认的清除按钮图标资源 */
     private static final int ICON_CLEAR_DEFAULT = R.drawable.ic_clear_text;
 
@@ -25,28 +25,28 @@ public class MEditText extends EditText {
     /** 清除按钮的图标 */
     private Drawable mClearDrawable;
 
-    public MEditText(Context context) {
+    public MsEditText(Context context) {
         super(context);
         init(context, null);
     }
 
-    public MEditText(Context context, AttributeSet attrs) {
+    public MsEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
 
-    public MEditText(Context context, AttributeSet attrs, int defStyleAttr) {
+    public MsEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
     }
 
     private void init(Context context, AttributeSet attrs) {
         // 获取自定义属性
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MEditText);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MsEditText);
         // 获取清除按钮
-        mShowClear = typedArray.getBoolean(R.styleable.MEditText_showClear, true);
+        mShowClear = typedArray.getBoolean(R.styleable.MsEditText_showClear, true);
         int iconClear =
-                typedArray.getResourceId(R.styleable.MEditText_clearIcon, ICON_CLEAR_DEFAULT);
+                typedArray.getResourceId(R.styleable.MsEditText_clearIcon, ICON_CLEAR_DEFAULT);
         mClearDrawable = getResources().getDrawable(iconClear);
         typedArray.recycle();
         updateIconClear();

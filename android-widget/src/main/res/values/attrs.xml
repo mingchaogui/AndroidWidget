@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="MEditText">
+    <declare-styleable name="MsEditText">
         <attr name="showClear" format="boolean"/>
         <!-- 清除按钮的图标 -->
         <attr name="clearIcon" format="reference"/>

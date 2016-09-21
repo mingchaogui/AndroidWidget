@@ -7,20 +7,20 @@ import android.widget.ScrollView;
 /**
  * Created by apple on 16/8/1.
  */
-public class MScrollView extends ScrollView {
+public class MsScrollView extends ScrollView {
 
     private OnScrollListener mOnScrollListener;
 
-    public MScrollView(Context context) {
+    public MsScrollView(Context context) {
         super(context);
     }
 
-    public MScrollView(Context context, AttributeSet attrs,
-                       int defStyle) {
+    public MsScrollView(Context context, AttributeSet attrs,
+                        int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public MScrollView(Context context, AttributeSet attrs) {
+    public MsScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -38,6 +38,6 @@ public class MScrollView extends ScrollView {
     }
 
     public interface OnScrollListener {
-        void onScrollChanged(MScrollView scrollView, int x, int y, int oldX, int oldY);
+        void onScrollChanged(MsScrollView scrollView, int x, int y, int oldX, int oldY);
     }
 }

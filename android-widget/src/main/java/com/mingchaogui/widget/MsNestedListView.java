@@ -4,17 +4,17 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ListView;
 
-public class MNestedListView extends ListView {
+public class MsNestedListView extends ListView {
 
-	public MNestedListView(Context context, AttributeSet attrs) {
+	public MsNestedListView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 
-	public MNestedListView(Context context) {
+	public MsNestedListView(Context context) {
 		super(context);
 	}
 
-	public MNestedListView(Context context, AttributeSet attrs, int defStyle) {
+	public MsNestedListView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 	}
 

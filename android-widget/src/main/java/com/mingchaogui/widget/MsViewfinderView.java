@@ -17,14 +17,14 @@ import java.util.List;
 /**
  * Created by apple on 16/8/24.
  */
-public class MQRCodeViewfinderView extends ViewfinderView {
+public class MsViewfinderView extends ViewfinderView {
 
     public int laserLinePosition = 0;
     public float[] position = new float[]{0f, 0.5f, 1f};
     public int[] laserColors;
     public int cornerColor;
 
-    public MQRCodeViewfinderView(Context context, AttributeSet attrs) {
+    public MsViewfinderView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         Resources resources = getResources();
