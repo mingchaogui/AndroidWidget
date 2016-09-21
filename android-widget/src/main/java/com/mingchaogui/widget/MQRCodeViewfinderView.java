@@ -23,7 +23,6 @@ public class MQRCodeViewfinderView extends ViewfinderView {
     public float[] position = new float[]{0f, 0.5f, 1f};
     public int[] laserColors;
     public int cornerColor;
-    public LinearGradient linearGradient;
 
     public MQRCodeViewfinderView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -82,8 +81,7 @@ public class MQRCodeViewfinderView extends ViewfinderView {
             if (laserLinePosition > frame.height()) {
                 laserLinePosition = 0;
             }
-            linearGradient = new LinearGradient(frame.left + 1, frame.top + laserLinePosition, frame.right - 1, frame.top + 10 + laserLinePosition, laserColors, position, Shader.TileMode.CLAMP);
-
+            LinearGradient linearGradient = new LinearGradient(frame.left + 1, frame.top + laserLinePosition, frame.right - 1, frame.top + 10 + laserLinePosition, laserColors, position, Shader.TileMode.CLAMP);
             paint.setShader(linearGradient);
             //绘制扫描线
             canvas.drawRect(frame.left + 1, frame.top + laserLinePosition, frame.right - 1, frame.top + 10 + laserLinePosition, paint);
