@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="LetterSpacingTextView">
+        <attr name="letterSpacing" format="float"/>
+        <attr name="text" format="string"/>
+    </declare-styleable>
+
     <declare-styleable name="MsEditText">
         <attr name="showClear" format="boolean"/>
         <!-- 清除按钮的图标 -->
         <attr name="clearIcon" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="MsPinView">
+        <attr name="msp_title_text" format="string"/>
+        <attr name="msp_title_text_color" format="reference"/>
+        <attr name="msp_pin_background" format="reference"/>
+        <attr name="msp_pin_text_color" format="reference"/>
+        <attr name="msp_button_background" format="reference"/>
+        <attr name="msp_button_text_color" format="reference"/>
     </declare-styleable>
 </resources>

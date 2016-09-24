@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 version = '0.0.3'
 
@@ -45,6 +46,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+kapt {
+    generateStubs = true
 }
 
 dependencies {
@@ -54,6 +62,13 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
 
+    compile 'com.android.support:design:24.2.1'
+
+    // Kotlin标准库
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     // 二维码
     compile 'com.journeyapps:zxing-android-embedded:3.3.0'
+}
+repositories {
+    mavenCentral()
 }

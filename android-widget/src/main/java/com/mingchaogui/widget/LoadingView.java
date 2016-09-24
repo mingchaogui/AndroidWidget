@@ -15,7 +15,7 @@ import android.view.animation.LinearInterpolator;
 /**
  * Created by apple on 16/9/2.
  */
-public class MsLoadingView extends View {
+public class LoadingView extends View {
 
     private Paint mPaint;
 
@@ -24,15 +24,15 @@ public class MsLoadingView extends View {
     private float startAngle = 0f;
     RectF rectF = new RectF();
 
-    public MsLoadingView(Context context) {
+    public LoadingView(Context context) {
         this(context, null);
     }
 
-    public MsLoadingView(Context context, AttributeSet attrs) {
+    public LoadingView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public MsLoadingView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LoadingView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initPaint();
     }
