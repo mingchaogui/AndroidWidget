@@ -11,7 +11,7 @@
     tools:context="com.mingchaogui.library.MainActivityFragment"
     tools:showIn="@layout/activity_main">
 
-    <com.mingchaogui.widget.pinview.MsPinView
+    <com.mingchaogui.widget.pinview.PinView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

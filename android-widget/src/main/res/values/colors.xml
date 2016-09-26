@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="pin_background">#E3ECF2</color>
+    <color name="pin_text_color">#6F8496</color>
+</resources>

@@ -4,10 +4,10 @@ import android.annotation.TargetApi
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -19,7 +19,7 @@ import com.mingchaogui.widget.R
 /**
  * Created by apple on 2016/9/23.
  */
-class MsPinView : LinearLayout {
+class PinView : LinearLayout {
 
     private val txtTitle by lazy {
         findViewById(R.id.txt_title) as TextView
@@ -61,37 +61,38 @@ class MsPinView : LinearLayout {
         LayoutInflater.from(context).inflate(R.layout.view_pin, this, true)
 
         val spanCount = 3
-        val spacing = resources.getDimensionPixelOffset(R.dimen.msp_item_spacing)
+        val spacing = resources.getDimensionPixelOffset(R.dimen.pin_item_spacing)
 
         rvBtn.setHasFixedSize(true)
-        rvBtn.layoutManager = GridLayoutManager(context, 3)
+        rvBtn.layoutManager = GridLayoutManager(context, spanCount)
         rvBtn.addItemDecoration(GridSpacingItemDecoration(spanCount, spacing, false))
-        rvBtn.adapter = MsPinAdapter()
+        rvBtn.adapter = PinAdapter(context)
     }
 
     private fun initAttrs(attrs: AttributeSet?) {
-        val a = context.obtainStyledAttributes(attrs, R.styleable.MsPinView)
+        val a = context.obtainStyledAttributes(attrs, R.styleable.PinView)
 
-        val titleText = a.getString(R.styleable.MsPinView_msp_title_text)
-        val titleTextColor = a.getColorStateList(R.styleable.MsPinView_msp_title_text_color)
-        val pinBackground = a.getDrawable(R.styleable.MsPinView_msp_pin_background)
-        val pinTextColor = a.getColorStateList(R.styleable.MsPinView_msp_pin_text_color)
-        val buttonBackground = a.getDrawable(R.styleable.MsPinView_msp_button_background)
-        val buttonTextColor = a.getColorStateList(R.styleable.MsPinView_msp_button_text_color)
+        val titleText = a.getString(R.styleable.PinView_pin_title_text)
+        val titleTextColor = a.getColorStateList(R.styleable.PinView_pin_title_text_color)
+        val pinBackground = a.getDrawable(R.styleable.PinView_pin_background)
+        val pinTextColor = a.getColorStateList(R.styleable.PinView_pin_text_color)
+        val buttonBackground = a.getDrawable(R.styleable.PinView_pin_button_background)
+        val buttonTextColor = a.getColorStateList(R.styleable.PinView_pin_button_text_color)
 
-        setTitleText(titleText ?: "请输入")
-        setTitleTextColor(titleTextColor ?: ColorStateList.valueOf(Color.GRAY))
-        setPinBackground(pinBackground ?: ColorDrawable(Color.WHITE))
+        background ?: setBackgroundDrawable(resources.getDrawable(R.drawable.bg_pin))
+        setTitleText(titleText ?: resources.getString(R.string.pin_title))
+        setTitleTextColor(titleTextColor ?: ColorStateList.valueOf(resources.getColor(R.color.pin_text_color)))
+        setPinBackground(pinBackground ?: resources.getDrawable(R.drawable.bg_pin_btn))
         setPinTextColor(pinTextColor ?: ColorStateList.valueOf(Color.BLACK))
-        setButtonBackground(buttonBackground ?: ColorDrawable(Color.LTGRAY))
-        setButtonTextColor(buttonTextColor ?: ColorStateList.valueOf(Color.BLACK))
+        setButtonBackground(buttonBackground ?: resources.getDrawable(R.drawable.bg_pin_btn_selector))
+        setButtonTextColor(buttonTextColor ?: ColorStateList.valueOf(resources.getColor(R.color.pin_text_color)))
 
         a.recycle()
     }
 
     private fun initListener() {
-        val adapter = rvBtn.adapter as MsPinAdapter
-        adapter.setOnItemClickListener(object : MsPinAdapter.OnItemClickListener {
+        val adapter = rvBtn.adapter as PinAdapter
+        adapter.setOnItemClickListener(object : PinAdapter.OnItemClickListener {
             override fun onNumber(num: Int) {
                 txtPin.text = txtPin.text.toString() + num
                 pinListener?.onChanged(txtPin.text)
@@ -118,7 +119,7 @@ class MsPinView : LinearLayout {
         txtTitle.text = title
     }
 
-    fun setTitleTextColor(textColor: ColorStateList?) {
+    fun setTitleTextColor(textColor: ColorStateList) {
         txtTitle.setTextColor(textColor)
     }
 
@@ -126,17 +127,17 @@ class MsPinView : LinearLayout {
         txtPin.setBackgroundDrawable(background)
     }
 
-    fun setPinTextColor(textColor: ColorStateList?) {
+    fun setPinTextColor(textColor: ColorStateList) {
         txtPin.setTextColor(textColor)
     }
 
     fun setButtonBackground(background: Drawable?) {
-        val adapter = rvBtn.adapter as MsPinAdapter
+        val adapter = rvBtn.adapter as PinAdapter
         adapter.setBackground(background)
     }
 
-    fun setButtonTextColor(textColor: ColorStateList?) {
-        val adapter = rvBtn.adapter as MsPinAdapter
+    fun setButtonTextColor(textColor: ColorStateList) {
+        val adapter = rvBtn.adapter as PinAdapter
         adapter.setTextColor(textColor)
     }
 

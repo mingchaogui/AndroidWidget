@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Widget</string>
+
+    <string name="processing">正在進行</string>
+
+    <string name="pin_title">請輸入Pin碼</string>
+    <string name="pin_clear">清除</string>
+    <string name="pin_backspace">退格</string>
+
+</resources>

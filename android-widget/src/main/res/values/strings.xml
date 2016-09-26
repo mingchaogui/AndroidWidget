@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Widget</string>
 
-    <string name="msp_clear">清除</string>
-    <string name="msp_backspace">退格</string>
+    <string name="processing">PROCESSING</string>
+
+    <string name="pin_title">Please enter the pin code</string>
+    <string name="pin_clear">Clear</string>
+    <string name="pin_backspace">BackSpace</string>
+
 </resources>

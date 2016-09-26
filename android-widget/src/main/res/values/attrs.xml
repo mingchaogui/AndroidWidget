@@ -11,12 +11,20 @@
         <attr name="clearIcon" format="reference"/>
     </declare-styleable>
 
-    <declare-styleable name="MsPinView">
-        <attr name="msp_title_text" format="string"/>
-        <attr name="msp_title_text_color" format="reference"/>
-        <attr name="msp_pin_background" format="reference"/>
-        <attr name="msp_pin_text_color" format="reference"/>
-        <attr name="msp_button_background" format="reference"/>
-        <attr name="msp_button_text_color" format="reference"/>
+    <declare-styleable name="PinView">
+        <attr name="pin_title_text" format="string"/>
+        <attr name="pin_title_text_color" format="reference"/>
+        <attr name="pin_background" format="reference"/>
+        <attr name="pin_text_color" format="reference"/>
+        <attr name="pin_button_background" format="reference"/>
+        <attr name="pin_button_text_color" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="ProgressButton">
+        <attr name="pbtn_text" format="string"/>
+        <attr name="pbtn_loading_text" format="string"/>
+        <attr name="pbtn_text_size" format="dimension"/>
+        <attr name="pbtn_text_color" format="color|reference"/>
+        <attr name="pbtn_progress_color" format="color|reference"/>
     </declare-styleable>
 </resources>

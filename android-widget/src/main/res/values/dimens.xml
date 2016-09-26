@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="msp_item_spacing">12dp</dimen>
+    <dimen name="btn_text_size">18dp</dimen>
+    <dimen name="primary_desc_text_size">16dp</dimen>
+
+    <dimen name="pin_item_spacing">20dp</dimen>
 
 </resources>

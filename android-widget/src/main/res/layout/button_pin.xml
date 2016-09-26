@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Button
-    style="?android:attr/borderlessButtonStyle"
-    android:id="@+id/txt"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="?android:attr/borderlessButtonStyle"
+    android:id="@+id/btn"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="48dp"
+    android:background="@drawable/bg_pin_btn_selector"
     android:singleLine="true"
-    android:textSize="16dp"/>
+    android:textSize="@dimen/btn_text_size"
+    tools:textColor="@color/pin_text_color"
+    tools:text="0"/>

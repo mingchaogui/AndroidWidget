@@ -1,5 +1,6 @@
 package com.mingchaogui.widget.pinview
 
+import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.support.v7.widget.RecyclerView
@@ -10,21 +11,27 @@ import com.mingchaogui.widget.R
 /**
  * Created by apple on 2016/9/24.
  */
-class MsPinAdapter : RecyclerView.Adapter<MsPinViewHolder>() {
+class PinAdapter : RecyclerView.Adapter<PinViewHolder> {
 
     companion object {
-        var CLEAR_RES = R.string.msp_clear
-        var BACKSPACE_RES = R.string.msp_backspace
+        var CLEAR_RES = R.string.pin_clear
+        var BACKSPACE_RES = R.string.pin_backspace
     }
 
-    private var background: Drawable? = null
-    private var textColor: ColorStateList? = null
+    private var background: Drawable?
+    private var textColor: ColorStateList
+
     private var itemClickListener: OnItemClickListener? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MsPinViewHolder {
+    constructor(context: Context) : super() {
+        background = context.resources.getDrawable(R.drawable.bg_pin_btn_selector)
+        textColor = ColorStateList.valueOf(context.resources.getColor(R.color.pin_text_color))
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PinViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.button_pin, parent, false)
-        val viewHolder = MsPinViewHolder(view)
-        viewHolder.setOnClickListener(object : MsPinViewHolder.OnClickListener {
+        val holder = PinViewHolder(view)
+        holder.setOnClickListener(object : PinViewHolder.OnClickListener {
             override fun onClick(position: Int) {
                 when(position) {
                     in 0..8 -> itemClickListener?.onNumber(position + 1)
@@ -34,17 +41,17 @@ class MsPinAdapter : RecyclerView.Adapter<MsPinViewHolder>() {
                 }
             }
         })
-        return viewHolder
+        return holder
     }
 
-    override fun onBindViewHolder(holder: MsPinViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PinViewHolder, position: Int) {
         when(position) {
             in 0..8 -> holder.setText((position + 1).toString())
-            9 -> holder.setText(MsPinAdapter.CLEAR_RES)
+            9 -> holder.setText(PinAdapter.CLEAR_RES)
             10 -> holder.setText("0")
-            11 -> holder.setText(MsPinAdapter.BACKSPACE_RES)
+            11 -> holder.setText(PinAdapter.BACKSPACE_RES)
         }
-        holder.setBackground(background)
+        //holder.setBackground(background)
         holder.setTextColor(textColor)
     }
 
@@ -57,7 +64,7 @@ class MsPinAdapter : RecyclerView.Adapter<MsPinViewHolder>() {
         notifyDataSetChanged()
     }
 
-    fun setTextColor(textColor: ColorStateList?) {
+    fun setTextColor(textColor: ColorStateList) {
         this.textColor = textColor
         notifyDataSetChanged()
     }

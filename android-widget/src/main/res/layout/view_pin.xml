@@ -8,26 +8,29 @@
         android:id="@+id/txt_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:gravity="center"
-        android:textSize="16dp"
-        tools:text="请输入"/>
+        android:layout_margin="@dimen/pin_item_spacing"
+        android:textSize="@dimen/primary_desc_text_size"
+        tools:textColor="@color/pin_text_color"
+        tools:text="@string/pin_title"/>
 
     <com.mingchaogui.widget.LetterSpacingTextView
         android:id="@+id/txt_pin"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="@dimen/pin_item_spacing"
+        android:layout_marginRight="@dimen/pin_item_spacing"
         android:gravity="center"
-        android:textSize="26dp"
-        app:letterSpacing="20"
+        android:singleLine="true"
+        android:textSize="24dp"
+        app:letterSpacing="12"
+        tools:textColor="@android:color/primary_text_light"
         tools:text="0000"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/msp_item_spacing"
-        android:layout_marginBottom="@dimen/msp_item_spacing"
+        android:layout_margin="@dimen/pin_item_spacing"
         android:overScrollMode="never"
         android:scrollbars="none"/>
 
