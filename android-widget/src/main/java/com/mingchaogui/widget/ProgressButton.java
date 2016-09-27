@@ -130,7 +130,7 @@ public class ProgressButton extends RelativeLayout {
     private void init(Context context, AttributeSet attrs) {
         mDefaultTextSize = getResources().getDimensionPixelSize(R.dimen.btn_text_size);
         mIsLoadingShowing = false;
-        LayoutInflater.from(getContext()).inflate(R.layout.view_loading_button, this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.progress_button, this, true);
 
         mProgressBar = (ProgressBar) findViewById(R.id.pb_progress);
         mTextSwitcher = (TextSwitcher) findViewById(R.id.pb_text);

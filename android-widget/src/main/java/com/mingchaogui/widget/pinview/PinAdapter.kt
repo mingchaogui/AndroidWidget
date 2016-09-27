@@ -29,7 +29,7 @@ class PinAdapter : RecyclerView.Adapter<PinViewHolder> {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PinViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.button_pin, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.pin_view_button, parent, false)
         val holder = PinViewHolder(view)
         holder.setOnClickListener(object : PinViewHolder.OnClickListener {
             override fun onClick(position: Int) {

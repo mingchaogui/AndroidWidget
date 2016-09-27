@@ -58,7 +58,7 @@ class PinView : LinearLayout {
     }
 
     private fun initView() {
-        LayoutInflater.from(context).inflate(R.layout.view_pin, this, true)
+        LayoutInflater.from(context).inflate(R.layout.pin_view, this, true)
 
         val spanCount = 3
         val spacing = resources.getDimensionPixelOffset(R.dimen.pin_item_spacing)
