@@ -7,7 +7,6 @@ import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -61,11 +60,12 @@ class PinView : LinearLayout {
         LayoutInflater.from(context).inflate(R.layout.pin_view, this, true)
 
         val spanCount = 3
-        val spacing = resources.getDimensionPixelOffset(R.dimen.pin_item_spacing)
+        val hSpacing = resources.getDimensionPixelOffset(R.dimen.pin_horizontal_padding)
+        val vSpacing = resources.getDimensionPixelOffset(R.dimen.pin_vertical_padding)
 
         rvBtn.setHasFixedSize(true)
         rvBtn.layoutManager = GridLayoutManager(context, spanCount)
-        rvBtn.addItemDecoration(GridSpacingItemDecoration(spanCount, spacing, false))
+        rvBtn.addItemDecoration(GridSpacingItemDecoration(spanCount, hSpacing, vSpacing, false))
         rvBtn.adapter = PinAdapter(context)
     }
 
@@ -74,7 +74,7 @@ class PinView : LinearLayout {
 
         val titleText = a.getString(R.styleable.PinView_pin_title_text)
         val titleTextColor = a.getColorStateList(R.styleable.PinView_pin_title_text_color)
-        val pinBackground = a.getDrawable(R.styleable.PinView_pin_background)
+        val pinTextBackground = a.getDrawable(R.styleable.PinView_pin_text_background)
         val pinTextColor = a.getColorStateList(R.styleable.PinView_pin_text_color)
         val buttonBackground = a.getDrawable(R.styleable.PinView_pin_button_background)
         val buttonTextColor = a.getColorStateList(R.styleable.PinView_pin_button_text_color)
@@ -82,7 +82,7 @@ class PinView : LinearLayout {
         background ?: setBackgroundDrawable(resources.getDrawable(R.drawable.bg_pin))
         setTitleText(titleText ?: resources.getString(R.string.pin_title))
         setTitleTextColor(titleTextColor ?: ColorStateList.valueOf(resources.getColor(R.color.pin_text_color)))
-        setPinBackground(pinBackground ?: resources.getDrawable(R.drawable.bg_pin_btn))
+        setPinTextBackground(pinTextBackground ?: resources.getDrawable(R.drawable.bg_pin_text))
         setPinTextColor(pinTextColor ?: ColorStateList.valueOf(Color.BLACK))
         setButtonBackground(buttonBackground ?: resources.getDrawable(R.drawable.bg_pin_btn_selector))
         setButtonTextColor(buttonTextColor ?: ColorStateList.valueOf(resources.getColor(R.color.pin_text_color)))
@@ -123,7 +123,7 @@ class PinView : LinearLayout {
         txtTitle.setTextColor(textColor)
     }
 
-    fun setPinBackground(background: Drawable?) {
+    fun setPinTextBackground(background: Drawable?) {
         txtPin.setBackgroundDrawable(background)
     }
 
