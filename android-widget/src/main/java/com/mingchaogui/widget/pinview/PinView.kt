@@ -30,6 +30,7 @@ class PinView : LinearLayout {
         findViewById(R.id.rv_btn) as RecyclerView
     }
 
+    private var pinLength = 6
     private var pinListener: PinListener? = null
 
     constructor(context: Context) : super(context) {
@@ -72,6 +73,8 @@ class PinView : LinearLayout {
     private fun initAttrs(attrs: AttributeSet?) {
         val a = context.obtainStyledAttributes(attrs, R.styleable.PinView)
 
+        pinLength = a.getInt(R.styleable.PinView_pin_length, pinLength)
+
         val titleText = a.getString(R.styleable.PinView_pin_title_text)
         val titleTextColor = a.getColorStateList(R.styleable.PinView_pin_title_text_color)
         val pinTextBackground = a.getDrawable(R.styleable.PinView_pin_text_background)
@@ -94,6 +97,9 @@ class PinView : LinearLayout {
         val adapter = rvBtn.adapter as PinAdapter
         adapter.setOnItemClickListener(object : PinAdapter.OnItemClickListener {
             override fun onNumber(num: Int) {
+                if (txtPin.text.length >= pinLength) {
+                    return
+                }
                 txtPin.text = txtPin.text.toString() + num
                 pinListener?.onChanged(txtPin.text)
             }

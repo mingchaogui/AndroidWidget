@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
-version = '0.0.8'
+version = '0.0.9'
 
 ext {
     bintrayRepo = 'maven'
@@ -35,7 +35,7 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 24
-        versionCode 8
+        versionCode 9
         versionName version
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

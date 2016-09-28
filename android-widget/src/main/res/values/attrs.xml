@@ -12,6 +12,7 @@
     </declare-styleable>
 
     <declare-styleable name="PinView">
+        <attr name="pin_length" format="integer"/>
         <attr name="pin_title_text" format="string"/>
         <attr name="pin_title_text_color" format="reference"/>
         <attr name="pin_text_background" format="reference"/>
