@@ -14,7 +14,7 @@
     <declare-styleable name="PinView">
         <attr name="pin_title_text" format="string"/>
         <attr name="pin_title_text_color" format="reference"/>
-        <attr name="pin_background" format="reference"/>
+        <attr name="pin_text_background" format="reference"/>
         <attr name="pin_text_color" format="reference"/>
         <attr name="pin_button_background" format="reference"/>
         <attr name="pin_button_text_color" format="reference"/>
