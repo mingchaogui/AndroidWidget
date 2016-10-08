@@ -1,6 +1,4 @@
 <resources>
-    <string name="aw_app_name">Widget</string>
-
     <string name="processing">正在進行</string>
 
     <string name="pin_title">請輸入Pin碼</string>

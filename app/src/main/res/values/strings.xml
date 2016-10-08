@@ -1,4 +1,4 @@
 <resources>
-    <string name="aw_app_name">Android Widget</string>
-    <string name="aw_action_settings">Settings</string>
+    <string name="app_name">Android Widget</string>
+    <string name="action_settings">Settings</string>
 </resources>
