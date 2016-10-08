@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
-version = '0.0.9'
+version = '0.1'
 
 ext {
     bintrayRepo = 'maven'
@@ -30,12 +30,12 @@ apply from:'https://cdn.rawgit.com/mingchaogui/JCenter/master/bintray.gradle'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    buildToolsVersion "24.0.3"
 
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 24
-        versionCode 9
+        versionCode 10
         versionName version
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
