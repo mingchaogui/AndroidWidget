@@ -1,6 +1,7 @@
 package com.mingchaogui.widget;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -35,7 +36,7 @@ public class ProgressButton extends RelativeLayout {
     private String mLoadingMessage;
     private String mButtonText;
     private float mTextSize;
-    private int mTextColor;
+    private ColorStateList mTextColor;
     private boolean mIsLoadingShowing;
     private Typeface mTypeface;
     private Animation inRight;
@@ -154,12 +155,19 @@ public class ProgressButton extends RelativeLayout {
                     mLoadingMessage = getContext().getString(R.string.processing);
                 }
 
-                int progressColor = a.getColor(R.styleable.ProgressButton_pbtn_progress_color, DEFAULT_COLOR);
-                setProgressColor(progressColor);
+                ColorStateList progressColor = a.getColorStateList(R.styleable.ProgressButton_pbtn_progress_color);
+                if (progressColor != null) {
+                    setProgressColor(progressColor.getDefaultColor());
+                } else {
+                    setProgressColor(DEFAULT_COLOR);
+                }
 
-                int textColor = a.getColor(R.styleable.ProgressButton_pbtn_text_color, DEFAULT_COLOR);
-                setTextColor(textColor);
-
+                ColorStateList textColor = a.getColorStateList(R.styleable.ProgressButton_pbtn_text_color);
+                if (textColor != null) {
+                    setTextColor(textColor);
+                } else {
+                    setTextColor(DEFAULT_COLOR);
+                }
             } finally {
                 a.recycle();
             }
@@ -191,20 +199,24 @@ public class ProgressButton extends RelativeLayout {
     }
 
     private void setTextColor(int textColor) {
+        this.mTextColor = ColorStateList.valueOf(textColor);
+    }
+
+    private void setTextColor(ColorStateList textColor) {
         this.mTextColor = textColor;
     }
 
     public static class ViewSwitcherFactory implements ViewSwitcher.ViewFactory {
 
         //region Variables
-        private final int textColor;
+        private final ColorStateList textColor;
         private final float textSize;
         private final Typeface typeFace;
         private final Context context;
         //endregion
 
         //region Constructor
-        public ViewSwitcherFactory(Context context, int textColor, float textSize, Typeface typeface) {
+        public ViewSwitcherFactory(Context context, ColorStateList textColor, float textSize, Typeface typeface) {
             this.context = context;
             this.textColor = textColor;
             this.textSize = textSize;
